@@ -1,0 +1,29 @@
+// frontend/src/styles/components/_sections.scss
+@use '../variables' as *;
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: rgba(26, 52, 97, 0.85);
+  border-radius: 24px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  h3 {
+    color: $color-primary;
+    margin-top: 0;
+  }
+}
+
+.site-footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  a {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}

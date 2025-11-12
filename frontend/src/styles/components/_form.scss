@@ -1,0 +1,59 @@
+// frontend/src/styles/components/_form.scss
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.section--contact {
+  .container {
+    background: $color-light;
+    color: $color-dark;
+    border-radius: $radius-card;
+    box-shadow: $shadow-card;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  label {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: $color-secondary;
+  }
+
+  input,
+  textarea {
+    border: 1px solid rgba(26, 52, 97, 0.2);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+  }
+
+  .checkbox {
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.9rem;
+    input {
+      width: auto;
+      margin-right: 0.75rem;
+    }
+  }
+
+  .btn {
+    @include button($color-secondary);
+    align-self: flex-start;
+  }
+
+  .form-status {
+    font-weight: 600;
+    &--success {
+      color: #2d8f66;
+    }
+    &--error {
+      color: #c0392b;
+    }
+  }
+}

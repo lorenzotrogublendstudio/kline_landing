@@ -1,0 +1,50 @@
+// frontend/src/styles/_layout.scss
+@use './variables' as *;
+@use './mixins' as *;
+
+:root {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-base;
+  background: linear-gradient(180deg, #0f1d38 0%, #1a3461 45%, #0f1d38 100%);
+  color: $color-light;
+}
+
+.container {
+  @include container;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  @include section-padding;
+}
+
+.section--card {
+  .container {
+    background: rgba(255, 255, 255, 0.98);
+    color: $color-dark;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border-radius: $radius-card;
+    box-shadow: $shadow-card;
+  }
+}
+
+.section__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-primary;
+  margin-bottom: 1rem;
+}
