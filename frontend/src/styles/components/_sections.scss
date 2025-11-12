@@ -1,5 +1,280 @@
 // frontend/src/styles/components/_sections.scss
 @use '../variables' as *;
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.section--intro {
+  background: $color-light;
+
+  .intro__container {
+    background: transparent;
+    color: $color-secondary;
+    box-shadow: none;
+    padding: clamp(3rem, 6vw, 5rem) 0;
+  }
+
+  .intro__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: center;
+  }
+
+  .intro__heading {
+    font-size: 1.15rem;
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: $color-primary;
+    margin: 0 0 0.75rem;
+  }
+
+  h2 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    color: $color-secondary;
+    margin: 0 0 1.85rem;
+    line-height: 1.05;
+  }
+
+  .intro__content p {
+    color: $color-secondary;
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .intro__copy {
+    background: rgba($color-secondary, 0.06);
+    border-left: 6px solid $color-primary;
+    padding: 1.75rem;
+    border-radius: 26px;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 25px 60px rgba(26, 52, 97, 0.12);
+  }
+
+  .intro__media {
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 35px 70px rgba(26, 52, 97, 0.25);
+    position: relative;
+    min-height: 420px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 2px solid rgba($color-light, 0.65);
+      border-radius: 34px;
+      pointer-events: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      min-height: 420px;
+      filter: saturate(1.05);
+    }
+  }
+
+  .intro__stats {
+    margin-top: clamp(2.5rem, 4vw, 4rem);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: clamp(1rem, 1.4vw, 1.75rem);
+    justify-items: stretch;
+  }
+
+  .intro-stat {
+    border-radius: 52px;
+    padding: clamp(1.6rem, 2.4vw, 2.4rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    color: $color-light;
+    box-shadow: 0 30px 60px rgba(9, 20, 38, 0.4);
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border-radius: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 35px 70px rgba(9, 20, 38, 0.45);
+    }
+
+    &__eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      margin: 0 0 0.2rem;
+    }
+
+    &__value {
+      font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    &__description {
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0.2rem 0 0;
+      color: rgba($color-light, 0.85);
+    }
+
+    &--accent {
+      background: $color-primary;
+    }
+
+    &--dark {
+      background: $color-secondary;
+    }
+  }
+}
+
+.section--how {
+  background: $color-light;
+  margin-top: -3.5rem;
+
+  .how__container {
+    background: transparent;
+    color: $color-secondary;
+    box-shadow: none;
+    padding: clamp(1.25rem, 3.5vw, 2.5rem) 0;
+  }
+
+  .how__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+    margin-top: -0.5rem;
+
+    img {
+      width: min(620px, 85vw);
+      height: auto;
+    }
+
+    .how__text {
+      text-align: left;
+      width: 100%;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+    }
+  }
+
+  .how__body {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: $color-secondary;
+  }
+
+  .how__copy {
+    margin-top: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    border-radius: 22px;
+    background: rgba($color-secondary, 0.05);
+    border-left: 5px solid $color-primary;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $color-secondary;
+  }
+
+  .how__media {
+    margin-top: 1.75rem;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(26, 52, 97, 0.25);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+.incentives-section {
+  background: $color-light;
+
+  .container {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 25px 60px rgba(26, 52, 97, 0.1);
+    border-radius: 36px;
+    padding: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .incentives-section__intro {
+    h2 {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: $color-secondary;
+    }
+  }
+
+  .incentives-section__grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .incentive-card {
+    border: 1px solid rgba(26, 52, 97, 0.1);
+    border-radius: 30px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    img {
+      width: 80px;
+      height: auto;
+    }
+
+    .incentive-card__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h3 {
+      margin: 0;
+      color: $color-secondary;
+    }
+
+    p {
+      margin: 0.35rem 0 0;
+    }
+  }
+}
 
 .card-grid {
   display: grid;

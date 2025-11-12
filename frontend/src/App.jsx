@@ -1,25 +1,72 @@
-// frontend/src/App.jsx
+import { Fragment } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Section from './components/Section.jsx';
-import Incentives from './components/Incentives.jsx';
+import Interventions from './components/Interventions.jsx';
+import IncentivesSection from './components/IncentivesSection.jsx';
 import ContactForm from './components/ContactForm.jsx';
 import Footer from './components/Footer.jsx';
 
 const sectionData = [
   {
     id: 'cose',
-    eyebrow: "COS'E'",
-    title: 'Più luce, più efficienza con i serramenti K•LINE',
+    eyebrow: "COS'È",
+    title: 'Il Conto Termico 3.0',
     body:
-      'Profilo in alluminio a taglio termico, grandi superfici vetrate e finiture sartoriali garantiscono performance energetiche e comfort visivo in ogni ambiente professionale.'
+      'Il contributo in conto capitale che incentiva gli interventi di efficienza energetica per edifici pubblici e privati, con tempistiche di erogazione rapide e copertura fino al 65% dei costi.',
+    copy: (
+      <>
+        Una delle principali novità presenti nel nuovo <strong>Conto Termico 3.0</strong> è
+        l’ampliamento della platea dei beneficiari. In sostanza, non solo le{' '}
+        <strong>pubbliche amministrazioni</strong>, ma su alcuni prodotti anche i{' '}
+        <strong>privati</strong> ed il <strong>terziario</strong> possono accedere agli incentivi per
+        interventi di efficientamento energetico.
+      </>
+    ),
+    stats: [
+      {
+        variant: 'accent',
+        title: 'NUOVI INCENTIVI',
+        subtitle: '2026'
+      },
+      {
+        variant: 'dark',
+        title: '€900',
+        subtitle: 'MILIONI',
+        description: 'FONDO ANNUO'
+      },
+      {
+        variant: 'dark',
+        title: '€400',
+        subtitle: 'MILIONI',
+        description: 'PER LE PUBBLICHE AMMINISTRAZIONI'
+      },
+      {
+        variant: 'dark',
+        title: '€500',
+        subtitle: 'MILIONI',
+        description: 'PER PRIVATI, IMPRESE E TERZO SETTORE'
+      }
+    ],
+    variant: 'intro'
   },
   {
     id: 'funziona',
     eyebrow: 'COME FUNZIONA',
-    title: 'Workflow di progettazione e posa senza attriti',
-    body:
-      'Sopralluogo, rilievi digitali, configurazione serramenti su misura e posa certificata: un flusso coordinato che riduce tempi e imprevisti su cantieri complessi.'
+    title: 'Tempi di rimborso semplificati',
+    body: (
+      <>
+        Per incentivi fino a <strong>15.000€</strong>, il rimborso avviene in un'unica rata entro{' '}
+        <strong>2 mesi</strong> dalla richiesta. Per importi superiori, il rimborso è in soli{' '}
+        <strong>5 anni</strong> (per serramenti e schermature).
+      </>
+    ),
+    copy: (
+      <>
+        <strong>Incentivo pagato direttamente sul tuo conto corrente dal GSE.</strong>
+      </>
+    ),
+    variant: 'how'
   },
   {
     id: 'perche',
@@ -37,9 +84,16 @@ export default function App() {
       <main>
         <Hero />
         {sectionData.map((section) => (
-          <Section key={section.id} {...section} />
+          <Fragment key={section.id}>
+            <Section {...section} />
+            {section.id === 'funziona' && (
+              <>
+                <Interventions />
+                <IncentivesSection />
+              </>
+            )}
+          </Fragment>
         ))}
-        <Incentives />
         <ContactForm />
       </main>
       <Footer />

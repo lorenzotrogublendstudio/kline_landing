@@ -1,4 +1,4 @@
-import heroBg from '../assets/img/bella-ripresa-di-un-edificio-moderno-blu-con-vetrate-perfette-per-architetture.jpg';
+import heroBg from '../assets/img/sun-reflected-windows-office-building.jpg';
 
 export default function Hero() {
   return (
@@ -21,6 +21,7 @@ export default function Hero() {
           <p className="hero__tagline">
             RIQUALIFICA IL TUO EDIFICIO CON I NUOVI INCENTIVI
           </p>
+        
           <div className="hero__cta">
             <a href="#incentivi" className="btn btn--primary">
               Scopri gli incentivi

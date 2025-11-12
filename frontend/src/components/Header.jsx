@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import logo from '../assets/img/logo-1.svg';
 
 const navItems = [
-  { id: 'cose', label: "Cos'e" },
+  { id: 'cose', label: "Cos'è" },
   { id: 'funziona', label: 'Come funziona' },
   { id: 'incentivi', label: 'Incentivi' },
-  { id: 'perche', label: 'Perche K-LINE' }
+  { id: 'perche', label: 'Perché K-LINE' }
 ];
 
 export default function Header() {
@@ -21,7 +22,9 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container">
-        <div className="logo">K-LINE</div>
+        <div className="logo">
+          <img src={logo} alt="K-LINE" />
+        </div>
         <button
           className="nav-toggle"
           aria-label="Apri menu"
