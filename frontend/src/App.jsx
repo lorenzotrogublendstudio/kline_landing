@@ -73,7 +73,13 @@ const sectionData = [
     eyebrow: "PERCHE' KLINE",
     title: 'Un partner unico per studi, imprese e PA',
     body:
-      'Assistenza progettuale, capitolati personalizzati e supporto alla pratica incentivi completano un’offerta verticale sul segmento terziario.'
+      'Assistenza progettuale, capitolati personalizzati e supporto alla pratica incentivi completano un’offerta verticale sul segmento terziario.',
+    copy: [
+      'Progettazione integrata con BIM e consulenza termica dedicata',
+      'Capitolati e mockup su misura per uffici, retail e hospitality',
+      'Coordinamento squadre certificate e post-vendita nazionale'
+    ],
+    variant: 'gallery'
   }
 ];
 

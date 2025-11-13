@@ -1,6 +1,14 @@
+import { useRef } from 'react';
 import introImage from '../assets/img/low-angle-view-modern-building-against-cloudy-sky.jpg';
 import howBadge from '../assets/img/SVG/Bollo.svg';
 import howImage from '../assets/img/building-pattern.jpg';
+import gallery01 from '../assets/img/bella-ripresa-di-un-edificio-moderno-blu-con-vetrate-perfette-per-architetture.jpg';
+import gallery02 from '../assets/img/large-windows-graphite-facade-set-against-blue-sky-shattered-office-building-contemporary-facade-with-windows-aluminum-cladding-generative-ai.jpg';
+import gallery03 from '../assets/img/building-with-modern-design.jpg';
+import gallery04 from '../assets/img/low-angle-view-building-against-clear-blue-sky.jpg';
+import gallery05 from '../assets/img/array-windows-if-old-neoclassical-style-palace-vienna.jpg';
+
+const defaultGallery = [gallery01, gallery02, gallery03, gallery04, gallery05];
 
 export default function Section({
   id,
@@ -9,8 +17,18 @@ export default function Section({
   body,
   variant = 'default',
   copy,
-  stats = []
+  stats = [],
+  gallery = []
 }) {
+  const galleryRef = useRef(null);
+
+  const scrollGallery = (direction) => {
+    const slider = galleryRef.current;
+    if (!slider) return;
+    const distance = slider.getBoundingClientRect().width * 0.9;
+    slider.scrollBy({ left: direction * distance, behavior: 'smooth' });
+  };
+
   if (variant === 'intro') {
     return (
       <section id={id} className="section section--card section--intro">
@@ -39,9 +57,7 @@ export default function Section({
                 >
                   {item.title && <p className="intro-stat__eyebrow">{item.title}</p>}
                   {item.subtitle && <p className="intro-stat__value">{item.subtitle}</p>}
-                  {item.description && (
-                    <p className="intro-stat__description">{item.description}</p>
-                  )}
+                  {item.description && <p className="intro-stat__description">{item.description}</p>}
                 </article>
               ))}
             </div>
@@ -72,6 +88,66 @@ export default function Section({
     );
   }
 
+if (variant === 'gallery') {
+  const slides = gallery.length ? gallery : defaultGallery;
+  const highlights = Array.isArray(copy) ? copy : [];
+
+  return (
+    <section id={id} className="section section--gallery">
+      <div className="gallery-slider__intro container">
+        <p className="section__eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
+        <p className="gallery-slider__lead">{body}</p>
+      </div>
+
+      <div className="gallery-slider" id={`${id}-slider`}>
+        <button
+          type="button"
+          className="gallery-arrow gallery-arrow--prev"
+          aria-label="Slide precedente"
+          onClick={() =>
+            document
+              .getElementById(`${id}-track`)
+              ?.scrollBy({ left: -window.innerWidth * 0.9, behavior: 'smooth' })
+          }
+        >
+          ‹
+        </button>
+
+        <div className="gallery-track" id={`${id}-track`}>
+          {slides.map((image, index) => (
+            <figure key={`${image}-${index}`} className="gallery-slide">
+              <img src={image} alt="Referenze K•LINE" loading="lazy" />
+            </figure>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="gallery-arrow gallery-arrow--next"
+          aria-label="Slide successiva"
+          onClick={() =>
+            document
+              .getElementById(`${id}-track`)
+              ?.scrollBy({ left: window.innerWidth * 0.9, behavior: 'smooth' })
+          }
+        >
+          ›
+        </button>
+      </div>
+
+      {highlights.length > 0 && (
+        <div className="gallery-slider__notes container">
+          <ul>
+            {highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
+  );
+}
   return (
     <section id={id} className="section section--card">
       <div className="container">

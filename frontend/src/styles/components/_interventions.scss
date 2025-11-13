@@ -119,20 +119,66 @@
     font-weight: 600;
   }
 
-  @media (max-width: 900px) {
-    .interventions__table-head,
+  @media (max-width: 1200px) {
+    .interventions__table-head {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .interventions__table-head {
+      display: none;
+    }
+
     .interventions__row {
-      grid-template-columns: 1fr;
+      display: block;
+      padding: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    .interventions__item {
+      padding: 0;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
     }
 
     .interventions__check {
       justify-content: flex-start;
       font-size: 1rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+
+      &::before {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.8rem;
+        opacity: 0.8;
+        width: 180px;
+        flex-shrink: 0;
+      }
+
+      &:nth-child(2)::before {
+        content: 'Pubbliche Amm.:';
+      }
+      &:nth-child(3)::before {
+        content: 'Privati Residenziali:';
+      }
+      &:nth-child(4)::before {
+        content: 'Terziario:';
+      }
     }
 
-    .interventions__table-head div:not(:first-child),
-    .interventions__check {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    .interventions__row > div:not(:first-child) {
+      border-left: none;
     }
   }
 }

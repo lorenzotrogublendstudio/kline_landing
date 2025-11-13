@@ -39,6 +39,12 @@ main {
     border-radius: $radius-card;
     box-shadow: $shadow-card;
   }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: clamp(1.5rem, 6vw, 2.25rem);
+    }
+  }
 }
 
 .section__eyebrow {

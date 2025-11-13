@@ -1,0 +1,15 @@
+*** Begin Patch
+*** Update File: frontend/src/styles/components/_sections.scss
+@@
+-    &--dark {
+-      background: $color-secondary;
+-    }
++    &--dark {
++      background: $color-secondary;
++      .intro-stat__eyebrow {
++        font-size: clamp(1.2rem, 2.4vw, 1.8rem);
++        font-weight: 800;
++        letter-spacing: 0.18em;
++      }
++    }
+*** End Patch
