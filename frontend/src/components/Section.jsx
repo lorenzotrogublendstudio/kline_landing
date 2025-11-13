@@ -3,7 +3,7 @@ import introImage from '../assets/img/low-angle-view-modern-building-against-clo
 import howBadge from '../assets/img/SVG/Bollo.svg';
 import howImage from '../assets/img/building-pattern.jpg';
 import gallery01 from '../assets/img/bella-ripresa-di-un-edificio-moderno-blu-con-vetrate-perfette-per-architetture.jpg';
-import gallery02 from '../assets/img/large-windows-graphite-facade-set-against-blue-sky-shattered-office-building-contemporary-facade-with-windows-aluminum-cladding-generative-ai.jpg';
+import gallery02 from '../assets/img/palazzo.jpg';
 import gallery03 from '../assets/img/building-with-modern-design.jpg';
 import gallery04 from '../assets/img/low-angle-view-building-against-clear-blue-sky.jpg';
 import gallery05 from '../assets/img/array-windows-if-old-neoclassical-style-palace-vienna.jpg';
