@@ -26,15 +26,12 @@ export default function Footer() {
         </nav>
 
         <div className="footer__contact">
-          <a href="tel:+39021234567">+39 02 1234 567</a>
-          <a href="mailto:terziario@kline.it">terziario@kline.it</a>
+         <p>© {year} K•LINE Italia <br /> Divisione Terziario</p>
           <p>Viale Europa 22 · Milano</p>
         </div>
       </div>
 
-      <div className="footer__bottom">
-        <p>© {year} K•LINE Italia · Divisione Terziario</p>
-      </div>
+     
     </footer>
   );
 }
